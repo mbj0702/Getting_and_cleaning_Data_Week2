@@ -26,9 +26,9 @@ req <- GET("https://api.github.com/users/jtleek/repos", gtoken)
 
 stop_for_status(req)
 
-js = content(req)
+js = content(req)       # stores the request content
 
-df_git = jsonlite::fromJSON(jsonlite::toJSON(js))
+df_git = jsonlite::fromJSON(jsonlite::toJSON(js))       # changes to data.frame
 
-df_git[df_git$full_name == "jtleek/datasharing", "created_at"]
+df_git[df_git$full_name == "jtleek/datasharing", "created_at"] # takes the subset of data.frame
 
